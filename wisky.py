@@ -35,5 +35,5 @@ for link in product_links:
         name = None
     whisky = {'Виски': name, 'Цена': price, 'Рейтинг': rating, 'Описание': about}
     data.append(whisky)
-    df = pd.DataFrame(data)
-    df.to_excel("wisky.xlsx", index=False)
+df = pd.DataFrame(data)
+df.to_excel("wisky.xlsx", index=False)
