@@ -16,21 +16,21 @@ for _ in range(1, 6):
 
 for link in product_links:
     req_price = requests.get(link, headers=headers).text
-    bs_req_prise = BeautifulSoup(req_price, 'html.parser')
+    bs_req = BeautifulSoup(req_price, 'html.parser')
     try:
-        price = bs_req_prise.find('p', {'class': 'product-action__price'}).text.replace('\n', '')
+        price = bs_req.find('p', {'class': 'product-action__price'}).text.replace('\n', '')
     except:
         price = None
     try:
-        about = bs_req_prise.find('div', {'class': 'product-main__description'}).text.replace('\n', '')
+        about = bs_req.find('div', {'class': 'product-main__description'}).text.replace('\n', '')
     except:
         about = None
     try:
-        rating = bs_req_prise.find('div', {'class': 'review-overview'}).text.replace('\n', '')
+        rating = bs_req.find('div', {'class': 'review-overview'}).text.replace('\n', '')
     except:
         rating = None
     try:
-        name = bs_req_prise.find('h1', {'class': 'product-main__name'}).text.replace('\n', '')
+        name = bs_req.find('h1', {'class': 'product-main__name'}).text.replace('\n', '')
     except:
         name = None
     whisky = {'Виски': name, 'Цена': price, 'Рейтинг': rating, 'Описание': about}
