@@ -13,7 +13,6 @@ for _ in range(1, 6):
     for product in product_list:
         link = product.find('a', {'class': 'product-card'}).get('href')
         product_links.append(baseurl + link)
-    print(product_links)
 
 for link in product_links:
     req_price = requests.get(link, headers=headers).text
@@ -37,4 +36,4 @@ for link in product_links:
     whisky = {'Виски': name, 'Цена': price, 'Рейтинг': rating, 'Описание': about}
     data.append(whisky)
     df = pd.DataFrame(data)
-    print(df)
+    df.to_excel("wisky.xlsx", index=False)
