@@ -3,8 +3,9 @@ from selenium import webdriver
 
 option = webdriver.ChromeOptions()
 # option.add_argument('--headless')
-option.add_argument('--no-sandbox')
-option.add_argument('--disable-dev-sh-usage')
+options.add_argument("--window-size=1920,1080")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
 driver = webdriver.Chrome('C:/Users/admin/Downloads/chromedriver/chromedriver.exe', options=option)
 driver.get('https://www.imdb.com/chart/top/')
 soup = BeautifulSoup(driver.page_source, 'html.parser')
